@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Indeksacja Aktów Metrykalnych</title>
+    <!-- Bootstrap CSS from CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- Link to the Six Hands Rough font (if not hosted locally) -->
+    <link href="https://fonts.cdnfonts.com/css/lemon-tuesday" rel="stylesheet">
+    <link href="https://db.onlinewebfonts.com/c/f6db36f5c636e2adf912702a4ad751ec?family=Six+Hands+Web+Rough" rel="stylesheet">
+</head>
+<body>
+<header>
+    <h1>Indeksacja Aktów Metrykalnych</h1>
+    <h2>Baza urodzeń, małżeństw i zgonów</h2>
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="strona_glowna.html">Strona główna</a></li>
+            <li><a href="wyszukiwarka.html">Wyszukiwarka</a></li>
+            <li><a href="strona_glowna.html" id="logoutBtn" style="display: none;">Wyloguj</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="scrolling-form container mt-4">
+    <form>
+        <div class="form-section">
+            <div id="formDataError" style="display: none;" class="alert alert-danger text-center">
+                Nieprawidłowa wartość daty.
+            </div>
+            <div id="formSuccessMessage" style="display: none;" class="alert alert-success text-center">
+                Formularz został pomyślnie wysłany.
+            </div>
+            <div id="formErrorMessage" style="display: none;" class="alert alert-danger text-center">
+                Wystąpił błąd podczas przetwarzania formularza.
+            </div>
+
+            <h3>Rodzaj Aktu</h3>
+            <label for="actType">Wybierz rodzaj aktu:</label>
+            <select class="form-control" id="actType" name="actType">
+                <option value="birth">Akt urodzenia</option>
+                <option value="death">Akt śmierci</option>
+                <option value="marriage">Akt małżeństwa</option>
+            </select>
+        </div>
+
+        <div class="form-section">
+            <h3>Dane zdarzenia</h3>
+            <label for="celebrant">Celebrant:</label>
+            <input type="text" class="form-control" id="celebrant" name="celebrant">
+            
+            <label for="eventLocation">Miejsce zdarzenia:</label>
+            <input type="text" class="form-control" id="eventLocation" name="eventLocation">
+
+            <label for="eventDate">Data zdarzenia:</label>
+            <input type="date" class="form-control" id="eventDate" name="eventDate">
+            
+            <label for="eventDescription">Tekst spisu:</label>
+            <textarea class="form-control" id="eventDescription" name="eventDescription"></textarea>
+
+            <label for="otherLanguage">Podaj język spisania:</label>
+            <input type="text" class="form-control" id="otherLanguage" name="otherLanguage">
+        
+            <label for="originalLanguage">Oryginalny język:</label>
+            <input type="text" class="form-control" id="originalLanguage" name="originalLanguage">
+            
+            <label for="translator">Tłumacz:</label>
+            <input type="text" class="form-control" id="translator" name="translator">
+        </div>
+        
+        <div class="form-section">
+            <h3>Informacje spisanego dokumentu</h3>
+            <label for="documentForm">Forma dokumentu:</label>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-check">
+                        <input type="checkbox" id="urlCheckbox" name="documentForm" value="url" class="form-check-input">
+                        <label for="urlCheckbox" class="form-check-label">URL</label>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-check">
+                        <input type="checkbox" id="localCheckbox" name="documentForm" value="local" class="form-check-input">
+                        <label for="localCheckbox" class="form-check-label">Lokalnie</label>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-check">
+                        <input type="checkbox" id="physicalCheckbox" name="documentForm" value="physical" class="form-check-input">
+                        <label for="physicalCheckbox" class="form-check-label">Fizycznie</label>
+                    </div>
+                </div>
+            </div>
+
+            <div id="urlInputs" style="display: none;">
+                <h4>Froma linku</h4>
+
+                <label for="numberOfUrls">Liczba URL-ów:</label>
+                <input type="number" class="form-control" id="numberOfUrls" name="numberOfUrls" min="1">
+
+                <div id="urlFields"></div>
+            </div>
+
+            <div id="localInputs" style="display: none;">
+                <h4>Forma lokalna</h4>
+
+                <label for="numberOfLocals">Liczba form lokalnych:</label>
+                <input type="number" class="form-control" id="numberOfLocals" name="numberOfLocals" min="1">
+
+                <div id="localFields"></div>
+            </div>
+
+            <div id="physicalInputs" style="display: none;">
+                <h4>Forma fizyczna</h4>
+
+                <label for="numberOfPhysicals">Liczba form lokalnych:</label>
+                <input type="number" class="form-control" id="numberOfPhysicals" name="numberOfPhysicals" min="1">
+
+                <div id="physicalFields"></div>
+            </div>
+
+
+            <label for="actLocation">Lokalizacja:</label>
+            <select class="form-control" id="actLocation" name="actLocation" onchange="showLocationForm()">
+                <option value="nope">Brak lokalizacji na liście</option>
+            </select>
+            <div class="form-section" id="locationForm" style="display: block;">
+                <label for="voivodeship">Województwo:</label>
+                <input type="text" class="form-control" id="voivodeship" name="voivodeship">
+                <label for="country">Powiat:</label>
+                <input type="text" class="form-control" id="country" name="country">
+                <label for="community">Gmina:</label>
+                <input type="text" class="form-control" id="community" name="community">
+                <label for="postalcode">Kod pocztowy:</label>
+                <input type="number" class="form-control" id="postalcode" name="postalcode">
+                <label for="city">Miasto:</label>
+                <input type="text" class="form-control" id="city" name="city">
+                <label for="parish">Parafia:</label>
+                <input type="text" class="form-control" id="parish" name="parish">
+                <label for="address">Adres:</label>
+                <input type="text" class="form-control" id="address" name="address">
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>Osoby</h3>
+
+            <label for="numberOfPeople">Liczba osób:</label>
+            <input type="number" class="form-control" id="numberOfPeople" name="numberOfPeople" min="1"/>
+
+            <div id="peopleFields"></div>
+        </div>
+
+        <div class="text-center">
+            <button type="button" class="btn btn-addAct" onclick="submitForm()">Wyślij formularz</button>
+        </div>
+
+    </form>
+</div>
+
+<footer>
+    <!-- Information about the footer, links, etc. -->
+</footer>
+
+<!-- Bootstrap JS from CDN -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+<script src="addScript.js"></script>
+</body>
+</html>

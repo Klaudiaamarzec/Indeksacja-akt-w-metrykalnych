@@ -1,0 +1,333 @@
+@import url('https://fonts.cdnfonts.com/css/lemon-tuesday');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Six Hands Web Rough";
+    font-size: 25px;
+    background: url('images/tlo.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+h1 {
+    font-family: 'Lemon Tuesday', sans-serif;
+    font-size: 55px;
+    font-weight: bold;
+}
+
+h2 {
+    font-family: "Six Hands Web Rough";
+    font-size: 45px;
+}
+
+h3 {
+    font-family: "Six Hands Web Rough";
+    font-size: 45px;
+}
+
+h4 {
+    padding-top: 30px;
+    font-family: "Six Hands Web Rough";
+    font-size: 35px;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+.headerSearch {
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    background-color: #8a6d3b;
+    overflow: hidden;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul li {
+    float: left;
+}
+
+nav ul li:first-child {
+    float: left;
+    margin-right: auto;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 12px;
+    text-decoration: none;
+    font-family: "Six Hands Web Rough";
+    font-size: 25px;
+}
+
+nav ul li a:hover {
+    background-color: #a2835a;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contentSearch, .contentRecords {
+    justify-content: space-between;
+}
+
+.left-side, .right-side {
+    flex-basis: 50%;
+    padding: 20px;
+}
+
+.right {
+    text-align: right;
+}
+
+section {
+    margin: 20px;
+    padding: 15px;
+    border: 1px solid #8a6d3b;
+    background-color: rgba(255, 255, 255, 0.514);
+}
+
+form {
+    padding: 20px;
+    margin-top: 5px;
+}
+
+input[type="text"]:invalid,
+input[type="password"]:invalid,
+input[type="submit"]:invalid,
+input[type="date"]:invalid,
+select:invalid,
+.register form select:invalid {
+    border: 1px solid red;
+}
+
+input[type="text"]:valid,
+input[type="password"]:valid,
+input[type="submit"]:valid,
+input[type="date"]:valid,
+select:valid,
+.register form select:valid {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #8a6d3b;
+}
+
+input[type="submit"] {
+    background-color: #8a6d3b;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #8a6d3b;
+    color: white;
+    cursor: pointer;
+    width: calc(100% - 100px);
+    display: block;
+}
+
+input[type="submit"]:hover {
+    background-color: #a2835a;
+}
+
+.tableButtons {
+    border-spacing: 100px;
+    width: 100%;
+    text-align: center;
+}
+
+.tableButtons td {
+    width: 30%;
+}
+
+.tablesearch {
+    border-spacing: 100px;
+    width: 50%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tablesearch td {
+    width: 25%;
+}
+
+footer {
+    padding: 20px;
+    background-color: #8a6d3b;
+    color: white;
+    text-align: center;
+}
+
+.search2 {
+    float:left;
+    margin-top: 50px;
+    width: 97%;
+}
+
+.tableResult {
+    width: 97%;
+    margin: 20px;
+    padding: 15px;
+    border: 1px solid black;
+}
+
+.tableResult td {
+    width: 5%;
+}
+
+@media (max-width: 768px) {
+    .content, .contentSearch, .contentRecords {
+        flex-direction: column;
+    }
+
+    .left-side, .right-side, .right {
+        flex-basis: 100%;
+    }
+}
+
+.form-group {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    margin-right: 10px;
+}
+
+.btn-search, .btn-login, .btn-register, .btn-addAct {
+    background-color: #0e0d0d;
+    color: white;
+    cursor: pointer;
+    padding: 12px;
+    width: 30%;
+    margin: auto;
+}
+
+.btn-selectAct {
+    background-color: #0e0d0d;
+    color: white;
+    cursor: pointer;
+    padding: 12px;
+    width: 40%;
+    margin: auto;
+    font-size: 24px;
+}
+
+.btn-act {
+    background-color: #0e0d0d;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    width: 15%;
+    margin: auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.btn-search:hover, .btn-login:hover, .btn-register:hover, .btn-addAct:hover, .btn-selectAct:hover {
+    background-color: #31312f;
+    color: #cccaca;
+}
+
+.narrow-row {
+    width: 10%;
+}
+
+.center-column {
+    text-align: center;
+}
+
+.search form {
+    max-width: 500px;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.search form .form-group {
+    flex-basis: 48%;
+}
+
+.login form, .register form  {
+    padding: 20px;
+    margin-top: 5px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.text-center {
+    width: 100%;
+    text-align: center;
+}
+
+.login table, .register table {
+    border-spacing: 10px;
+    width: 100%;
+}
+
+.login table td, .register table td {
+    padding: 7px;
+    text-align: center;
+}
+
+.scrolling-form {
+    max-width: 600px;
+    margin: 50px auto;
+}
+
+.form-section {
+    margin: 20px;
+    padding: 15px;
+    border: 1px solid #8a6d3b;
+    background-color: rgba(255, 255, 255, 0.514);
+}
+
+.spacer {
+    height: 30px; /* Możesz dostosować wysokość w zależności od potrzeb */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input,
+input[type="number"],
+.form-section textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #8a6d3b;
+}
+
+.form-navigation {
+    margin-top: 20px;
+}
+
+.btn-next, .btn-prev {
+    background-color: #0e0d0d;
+    color: white;
+    cursor: pointer;
+    padding: 12px;
+    margin-right: 10px;
+}
+
+.btn-next:hover, .btn-prev:hover {
+    background-color: #31312f;
+    color: #cccaca;
+}

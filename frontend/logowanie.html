@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Logowanie - Indeksacja Aktów Metrykalnych</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.cdnfonts.com/css/lemon-tuesday" rel="stylesheet">
+    <link href="https://db.onlinewebfonts.com/c/f6db36f5c636e2adf912702a4ad751ec?family=Six+Hands+Web+Rough" rel="stylesheet">
+</head>
+<body>
+<header>
+    <h1>Indeksacja Aktów Metrykalnych</h1>
+    <h2>Baza urodzeń, małżeństw i zgonów</h2>
+    <nav>
+        <ul>
+            <li><a href="strona_glowna.html" >Strona główna</a></li>
+            <li><a href="wyszukiwarka.html">Wyszukiwarka</a></li>
+            <li><a href="#database">Baza</a></li>
+            <li><a href="rejestracja.html">Załóż konto</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-5">
+            <!-- Treść strony logowania -->
+            <section class="login">
+                <div id="loginEmptyFieldsError" style="display: none;" class="alert alert-danger text-center">
+                    Proszę uzupełnić wszystkie pola.
+                </div>
+                <div id="loginInvalidCredentialsError" style="display: none;" class="alert alert-danger text-center">
+                    Nieprawidłowe dane logowania.
+                </div>
+                <div id="loginErrorMessage" style="display: none;" class="alert alert-danger text-center">
+                    Wystąpił błąd podczas logowania.
+                </div>
+
+                <h3 class="text-center">Logowanie</h3>
+                <form id="loginForm">
+                    <table>
+                        <tr>
+                            <td><label for="username">UŻYTKOWNIK:</label></td>
+                            <td><input type="text" class="form-control" id="username" name="username"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="password">HASŁO:</label></td>
+                            <td><input type="password" class="form-control" id="password" name="password"></td>
+                        </tr>
+                    </table>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-login" onclick="handleLoginClick()">Zaloguj</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+</div>
+
+
+<footer>
+    <!-- Informacje o stopce, linkach, itp. -->
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+<script src="login.js"></script>
+</body>
+</html>

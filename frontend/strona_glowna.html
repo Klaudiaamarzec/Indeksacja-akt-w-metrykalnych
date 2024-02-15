@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Indeksacja Aktów Metrykalnych</title>
+    <!-- Bootstrap CSS from CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- Link to the Six Hands Rough font (if not hosted locally) -->
+    <link href="https://fonts.cdnfonts.com/css/lemon-tuesday" rel="stylesheet">
+    <link href="https://db.onlinewebfonts.com/c/f6db36f5c636e2adf912702a4ad751ec?family=Six+Hands+Web+Rough" rel="stylesheet">
+</head>
+<body>
+<header>
+    <h1>Indeksacja Aktów Metrykalnych</h1>
+    <h2>Baza urodzeń, małżeństw i zgonów</h2>
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="strona_glowna.html">Strona główna</a></li>
+            <li><a href="wyszukiwarka.html">Wyszukiwarka</a></li>
+            <li><a href="dodawanie_aktow.html" id="addActBtn" style="display: none;">Dodaj akt</a></li>
+            <li><a href="logowanie.html" id="loginBtn">Logowanie</a></li>
+            <li><a href="rejestracja.html" id="registerBtn">Załóż konto</a></li>
+            <li><a href="#" id="logoutBtn" style="display: none;">Wyloguj</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-7">
+            <section class="history">
+                <h3>Odkrywaj Korzenie, Buduj Historię!</h3>
+                <p>Zanurz się w fascynującym świecie genealogii za pomocą naszego serwisu indeksacji  aktów metrykalnych.  To miejsce, gdzie historia spotyka się z nowoczesnością,  umożliwiając Ci odkrywanie tajemnic przeszłości i budowanie skarbca rodzinnych wspomnień. Nasz serwis obejmuje archiwa z różnych regionów, umożliwiając Ci zgłębianie historii rodzinnych korzeni na całym świecie. Poprzez przyjazny interfejs, serwis udostępnia użytkownikom bazę danych zawierającą indeksy, pochodzące z materiałów przechowywanych w archiwach kościelnych. Znajdź miejsce, w którym Twoje rodzinne ścieżki się krzyżują, i odkryj fascynujące opowieści. </p>
+            </section>
+
+            <section class="search" id="searchSection">
+                <h3 class="text-center">Wyszukaj akta</h3>
+                <form onsubmit="handleSearch(event)">
+                    <div class="form-group">
+                        <label for="name">Imię:</label>
+                        <input type="text" class="form-control" id="name" name="name">
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="surname">Nazwisko:</label>
+                        <input type="text" class="form-control" id="surname" name="surname">
+                    </div>
+
+                    <!-- Add the rest of the form fields here -->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-search">Szukaj</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+
+        <div class="col-lg-5" id="loginSection">
+            <section class="join">
+                <h3>Dołącz do projektu genealogicznego!</h3>
+                <p>Rozpocznij podróż w głąb historii swojej rodziny już dziś! 
+                    Zakładając konto, otwierasz drzwi do fascynującego świata indeksacji aktów metrykalnych.
+                    Po zalogowaniu zyskasz dostęp do dodatkowych funkcji, takich jak zapisywanie ulubionych aktów, 
+                    śledzenie historii wyszukiwań oraz personalizacja Twojego doświadczenia genealogicznego. 
+                    Rozpocznij swoją genealogiczną podróż już teraz. 
+                    Załóż konto i dołącz do naszej społeczności poszukiwaczy historii!</p>
+            </section>
+
+            <section class="login">
+                <div id="loginEmptyFieldsError" style="display: none;" class="alert alert-danger text-center">
+                    Proszę uzupełnić wszystkie pola.
+                </div>
+                <div id="loginInvalidCredentialsError" style="display: none;" class="alert alert-danger text-center">
+                    Nieprawidłowe dane logowania.
+                </div>
+                <div id="loginErrorMessage" style="display: none;" class="alert alert-danger text-center">
+                    Wystąpił błąd podczas logowania.
+                </div>
+
+                <h3 class="text-center">Logowanie</h3>
+                <form id="loginForm">
+                    <table>
+                        <tr>
+                            <td><label for="username">UŻYTKOWNIK:</label></td>
+                            <td><input type="text" class="form-control" id="username" name="username"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="password">HASŁO:</label></td>
+                            <td><input type="password" class="form-control" id="password" name="password"></td>
+                        </tr>
+                    </table>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-login" onclick="handleLoginClick()">Zaloguj</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <!-- Information about the footer, links, etc. -->
+</footer>
+
+<!-- Bootstrap JS from CDN -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- <script src="ścieżka/do/twojego/skryptu.js"></script> -->
+<script src="script.js"></script>
+<script src="login.js"></script>
+<script src="searchResult.js"></script>
+</body>
+</html>

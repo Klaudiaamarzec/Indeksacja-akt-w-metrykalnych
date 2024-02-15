@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Indeksacja Aktów Metrykalnych</title>
+    <!-- Bootstrap CSS from CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- Link to the Six Hands Rough font (if not hosted locally) -->
+    <link href="https://fonts.cdnfonts.com/css/lemon-tuesday" rel="stylesheet">
+    <link href="https://db.onlinewebfonts.com/c/f6db36f5c636e2adf912702a4ad751ec?family=Six+Hands+Web+Rough" rel="stylesheet">
+</head>
+<body>
+<header>
+    <h1>Indeksacja Aktów Metrykalnych</h1>
+    <h2>Baza urodzeń, małżeństw i zgonów</h2>
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="strona_glowna.html">Strona główna</a></li>
+            <li><a href="wyszukiwarka.html">Wyszukiwarka</a></li>
+            <li><a href="dodawanie_aktow.html" id="addActBtn" style="display: none;">Dodaj akt</a></li>
+            <li><a href="logowanie.html" id="loginBtn">Logowanie</a></li>
+            <li><a href="rejestracja.html" id="registerBtn">Załóż konto</a></li>
+            <li><a href="#" id="logoutBtn" style="display: none;">Wyloguj</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="contentSearch">
+
+    <section class = "search">
+
+        <h1 class = "headerSearch">Wyszukaj akt</h1>
+        <div class="spacer"></div>
+
+        <table class="tableButtons">
+            <tr>
+                <td><button type="button" class="btn btn-selectAct" id="btnBirthRecords">Akty urodzeń</button></td>
+                <td><button type="button" class="btn btn-selectAct" id="btnMarriageRecords">Akty małżeństw</button></td>
+                <td><button type="button" class="btn btn-selectAct" id="btnDeathRecords">Akty zgonów</button></td>
+
+            </tr>
+        </table>
+
+        <div class="spacer"></div>
+
+        <table class="tablesearch">
+            <tr>
+
+                <td><label for="name">Imię:</label></td>
+                <td><label for="surname">Nazwisko:</label></td>
+                <!-- <td><label for="relation">Relacja:</label></td> -->
+
+            </tr>
+            <tr>
+                <!-- <td class="right">Osoba</td> -->
+
+                <td><input type="text" id="name" name="name" style="width: 200px;"></td>
+                <td><input type="text" id="surname" name="surname" style="width: 200px;"></td>
+                <!-- <td><input type="text" id="relation" name="relation"></td> -->
+            </tr>
+        </table>
+
+        <!-- <tr>
+            <td></td>
+            <td><label for="from">Od:</label></td>
+            <td><label for="to">Do:</label></td>
+        </tr>
+        <tr>
+            <td class="right">Przedział dat</td>
+            <td><input type="date" id="from" name="from"></td>
+            <td><input type="date" id="to" name="to"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><label for="country">Państwo:</label></td>
+            <td><label for="voivodeship">Województwo:</label></td>
+            <td><label for="city">Miasto:</label></td>
+        </tr>
+        <tr>
+            <td class="right">Lokalizacja</td>
+            <td><input type="text" id="country" name="country"></td>
+            <td><input type="text" id="voivodeship" name="voivodeship"></td>
+            <td><input type="text" id="city" name="city"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><label for="celebrant">Osoba udzielająca sakramentu:</label></td>
+            <td><label for="documentType">Rodzaj dokumentu:</label></td>
+            <td><label for="language">Język:</label></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="text" id="celebrant" name="country"></td>
+            <td><input type="text" id="documentType" name="country"></td>
+            <td><input type="text" id="language" name="country"></td>
+        </tr>
+
+    </table> -->
+        <form onsubmit="handleSearch(event)">
+            <div class="text-center">
+                <button type="submit" class="btn btn-login">Szukaj</button>
+            </div>
+        </form>
+
+    </section>
+
+</div>
+
+<footer>
+    <!-- Informacje o stopce, linki itp. -->
+</footer>
+
+<script src="searchResult.js"></script>
+</body>
+</html>

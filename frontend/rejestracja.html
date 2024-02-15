@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Rejestracja - Indeksacja Aktów Metrykalnych</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.cdnfonts.com/css/lemon-tuesday" rel="stylesheet">
+    <link href="https://db.onlinewebfonts.com/c/f6db36f5c636e2adf912702a4ad751ec?family=Six+Hands+Web+Rough" rel="stylesheet">
+</head>
+<body>
+<header>
+    <h1>Indeksacja Aktów Metrykalnych</h1>
+    <h2>Baza urodzeń, małżeństw i zgonów</h2>
+    <nav>
+        <ul>
+            <li><a href="strona_glowna.html" >Strona główna</a></li>
+            <li><a href="wyszukiwarka.html">Wyszukiwarka</a></li>
+            <li><a href="#database">Baza</a></li>
+            <li><a href="logowanie.html">Logowanie</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-5">
+            <!-- Treść strony rejestracji -->
+            <section class="register">
+                <div id="emptyFieldsError" style="display: none;" class="alert alert-danger text-center">
+                    Proszę uzupełnić wszystkie pola.
+                </div>
+                <div id="shortPasswordError" style="display: none;" class="alert alert-danger text-center">
+                    Hasło musi mieć co najmniej 8 znaków.
+                </div>
+                <div id="emailAlreadyRegisteredError" style="display: none;" class="alert alert-danger text-center">
+                    Użytkonik jest już zarejestrowany.
+                </div>
+                <div id="errorMessage" style="display: none;" class="alert alert-danger text-center">
+                    Wystąpił błąd podczas rejestracji.
+                </div>
+                <div id="registrationMessage" style="display: none;" class="alert alert-success text-center">
+                    Użytkownik został pomyślnie zarejestrowany.
+                </div>
+
+                <h3 class="text-center">Rejestracja</h3>
+                <form id="registrationForm">
+                    <table>
+                        <tr>
+                            <td><label for="newUsername">NAZWA UŻYTKOWNIKA:</label></td>
+                            <td><input type="text" class="form-control" id="newUsername" name="username"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="newPassword">USTAW HASŁO:</label></td>
+                            <td><input type="password" class="form-control" id="newPassword" name="password"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="role">ROLA:</label></td>
+                            <td>
+                                <select class="form-control" id="role" name="idrole">
+                                    <option value="1">Użytkonik</option>
+                                    <option value="2">Arbiter</option>
+                                    <!-- Dodaj inne role według potrzeb -->
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-register" onclick="handleRegistrationClick()">Zarejestruj się</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <!-- Informacje o stopce, linkach, itp. -->
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+<script src="register.js"></script>
+</body>
+</html>
